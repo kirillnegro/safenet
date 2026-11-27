@@ -1,8 +1,14 @@
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -12,31 +18,8 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Контейнер для кнопок в шапке */
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+/* ================= ШАПКА САЙТА ================= */
 
-/* Кнопки смены темы и языка */
-.theme-btn {
-  background: #f1f5f9;
-  border: 1px solid #cbd5e1;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  color: #1e293b;
-  transition: background 0.2s, border-color 0.2s;
-}
-
-.theme-btn:hover {
-  background: #e2e8f0;
-}
-
-/* Шапка (Header) */
 .header {
   background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
@@ -66,6 +49,7 @@ body {
   height: 40px;
   background-color: #2563eb;
   border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .logo-title {
@@ -82,14 +66,39 @@ body {
   color: #64748b;
 }
 
-/* Кнопки */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ================= КНОПКИ ================= */
+
+.theme-btn {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #1e293b;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.theme-btn:hover {
+  background: #e2e8f0;
+}
+
 .btn {
+  display: inline-block;
   padding: 10px 20px;
   border-radius: 24px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   border: none;
+  text-decoration: none;
   transition: background-color 0.2s;
 }
 
@@ -102,7 +111,8 @@ body {
   background-color: #1d4ed8;
 }
 
-/* Hero Section */
+/* ================= ГЛАВНАЯ СЕКЦИЯ ================= */
+
 .hero {
   padding: 60px 20px;
   background: #ffffff;
@@ -120,6 +130,7 @@ body {
 
 .hero-content {
   flex: 1;
+  min-width: 0;
 }
 
 .hero-title {
@@ -143,32 +154,55 @@ body {
   transition: color 0.3s;
 }
 
+/* ================= ГЛАВНЫЙ БАННЕР ================= */
+
 .hero-image-placeholder {
   flex: 1;
-  height: 300px;
-  border: 2px dashed #cbd5e1;
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  border: none;
   border-radius: 16px;
+  background: transparent;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #94a3b8;
-  background: #f8fafc;
-  transition: background 0.3s, border-color 0.3s;
 }
 
-/* Topics Section */
+.hero-image-placeholder img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+/* ================= ОСНОВНЫЕ ТЕМЫ ================= */
+
 .topics-section {
   max-width: 100%;
   padding: 70px 20px;
   margin: 0 auto;
   text-align: center;
   background-color: #e2e8f0;
-  background-image: 
-    linear-gradient(90deg, rgba(37, 99, 235, 0.08) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(37, 99, 235, 0.08) 1px, transparent 1px);
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(37, 99, 235, 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      0deg,
+      rgba(37, 99, 235, 0.08) 1px,
+      transparent 1px
+    );
+
   background-size: 40px 40px;
   border-bottom: 1px solid #cbd5e1;
   transition: background-color 0.3s, border-color 0.3s;
+  scroll-margin-top: 90px;
 }
 
 .section-badge {
@@ -190,6 +224,8 @@ body {
   transition: color 0.3s;
 }
 
+/* ================= КАРТОЧКИ ================= */
+
 .cards-grid {
   max-width: 1140px;
   margin: 0 auto;
@@ -208,13 +244,21 @@ body {
   gap: 20px;
   text-align: left;
   width: 65%;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s, background 0.3s, border-color 0.3s;
+
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.05);
+
+  transition:
+    transform 0.2s,
+    background 0.3s,
+    border-color 0.3s;
 }
 
 .card:hover {
   transform: translateY(-2px);
 }
+
+/* Расположение карточек лесенкой */
 
 .card:nth-child(odd) {
   align-self: flex-start;
@@ -224,19 +268,33 @@ body {
   align-self: flex-end;
 }
 
+/* ================= ФОТОГРАФИИ КАРТОЧЕК ================= */
+
 .card-media-placeholder {
-  width: 120px;
-  height: 90px;
-  border: 1px dashed #cbd5e1;
+  width: 180px;
+  height: 120px;
+  border: none;
   border-radius: 8px;
-  background: #f8fafc;
+  background: #ffffff;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
-  color: #94a3b8;
   flex-shrink: 0;
-  transition: background 0.3s, border-color 0.3s;
+}
+
+.card-media-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ================= ТЕКСТ КАРТОЧЕК ================= */
+
+.card-content {
+  flex: 1;
+  min-width: 0;
 }
 
 .card-content h3 {
@@ -264,7 +322,8 @@ body {
   text-decoration: underline;
 }
 
-/* Footer */
+/* ================= ПОДВАЛ САЙТА ================= */
+
 .footer {
   background: #1e293b;
   color: #94a3b8;
@@ -274,7 +333,8 @@ body {
   transition: background 0.3s;
 }
 
-/* ================= DARK THEME STYLES ================= */
+/* ================= ТЕМНАЯ ТЕМА ================= */
+
 body.dark-theme {
   background-color: #0f172a;
   color: #f1f5f9;
@@ -308,95 +368,131 @@ body.dark-theme .card-content p {
   color: #94a3b8;
 }
 
+body.dark-theme .highlight {
+  color: #60a5fa;
+}
+
 body.dark-theme .hero {
   background: #1e293b;
   border-color: #334155;
 }
 
-body.dark-theme .hero-image-placeholder,
+body.dark-theme .hero-image-placeholder {
+  background: transparent;
+}
+
 body.dark-theme .card-media-placeholder {
-  background: #0f172a;
-  border-color: #334155;
-  color: #64748b;
+  background: #ffffff;
 }
 
 body.dark-theme .topics-section {
   background-color: #111827;
-  background-image: 
-    linear-gradient(90deg, rgba(59, 130, 246, 0.06) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(59, 130, 246, 0.06) 1px, transparent 1px);
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(59, 130, 246, 0.06) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      0deg,
+      rgba(59, 130, 246, 0.06) 1px,
+      transparent 1px
+    );
+
   border-color: #334155;
 }
 
 body.dark-theme .card {
   background: #1e293b;
   border-color: #334155;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-theme .card-link {
+  color: #60a5fa;
+}
+
+body.dark-theme .section-badge {
+  background: #1e3a5f;
+  color: #93c5fd;
 }
 
 body.dark-theme .footer {
   background: #0b0f19;
-  color: #64748b;
+  color: #94a3b8;
 }
 
+/* ================= АДАПТИВНОСТЬ ================= */
 
-.card-media-placeholder {
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.card-media-placeholder img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; 
-  display: block;
-}
-
-
-
-/* Адаптивность */
 @media (max-width: 900px) {
+
   .hero-container {
     flex-direction: column;
   }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .hero-image-placeholder {
+    width: 100%;
+  }
+
   .card {
     width: 100%;
   }
+
 }
 
 @media (max-width: 480px) {
+
   .header-container {
     flex-wrap: wrap;
     gap: 12px;
   }
+
   .theme-btn {
     padding: 6px 12px;
     font-size: 12px;
   }
-}
 
-/* Изображения */
-.hero-image-placeholder {
-  height: auto;
-  min-width: 0;
-  border: none;
-  background: transparent;
-  overflow: hidden;
-}
-.hero-image-placeholder img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 16px;
-}
-.card-media-placeholder {
-  border: none;
-}
-.card-media-placeholder img {
-  object-fit: contain;
-}
-@media (max-width: 900px) {
-  .hero-image-placeholder { width: 100%; }
+  .hero {
+    padding: 30px 15px;
+  }
+
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .hero-container {
+    gap: 24px;
+  }
+
+  .topics-section {
+    padding: 40px 15px;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  .card-media-placeholder {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+  }
+
+  .card-content {
+    width: 100%;
+  }
+
 }
