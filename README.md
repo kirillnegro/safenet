@@ -1,3 +1,4 @@
+
 # 🛡️ SafeNet — Цифрова грамотність
 
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
@@ -45,6 +46,27 @@ SafeNet — освітній вебсайт, створений для підв�
 | Git | Контроль версій |
 | GitHub | Зберігання проєкту |
 
+## 📁 Структура проєкту
+
+    safenet-main/
+    ├── main.html
+    ├── conflict.html
+    ├── coch.css
+    ├── site.js
+    ├── README.md
+    └── photos/
+        ├── logo.png
+        ├── light-logo.png
+        ├── banner.jpg
+        ├── light-banner.png
+        ├── et2.png
+        ├── et-dark.png
+        ├── conf2.png
+        ├── conf-dark.png
+        ├── sc2.png
+        ├── sc-dark.png
+        ├── rep1.png
+        └── rep-dark.png
 
 ## 🚀 Запуск проєкту
 
@@ -72,9 +94,7 @@ SafeNet — освітній вебсайт, створений для підв�
 
 ## 👨‍💻 Автор
 
-Красночубенко Кирилл Костянтинович
-Маріненко Микита Сергійович
-Вовк Назар Сергійович
+Навчальний проєкт з веброзробки.
 
 ## 📄 2026 — SafeNet
 
