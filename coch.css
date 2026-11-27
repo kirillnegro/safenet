@@ -1,3 +1,4 @@
+
 /* ================= ОСНОВНЫЕ НАСТРОЙКИ ================= */
 
 * {
@@ -61,6 +62,16 @@ body {
   object-fit: contain;
   border-radius: 10px;
   flex-shrink: 0;
+}
+
+body:not(.dark-theme) .logo-icon {
+  content: url("photos/light-logo.png");
+  filter: invert(1);
+}
+
+body.dark-theme .logo-icon {
+  content: url("photos/logo.png");
+  filter: none;
 }
 
 .logo-icon-placeholder {
@@ -178,16 +189,27 @@ body {
   transition: color 0.3s;
 }
 
-/* ================= БАННЕР СВЕТЛОЙ ТЕМЫ ================= */
+/* ================= ГЛАВНЫЙ БАННЕР ================= */
 
 .hero.hero-banner {
   width: 100%;
+
+  height: 450px;
   min-height: 450px;
-  padding: 80px 20px;
+  max-height: 450px;
+
+  aspect-ratio: auto;
+  padding: 60px 20px;
 
   background-color: #e2e8f0;
 
-  background-image: url("photos/light-banner.png");
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.65),
+      rgba(255, 255, 255, 0.05)
+    ),
+    url("photos/light-banner.png");
 
   background-size: cover;
   background-position: center;
@@ -204,11 +226,11 @@ body {
 }
 
 .hero-banner .hero-content {
-  max-width: 600px;
+  max-width: 550px;
 }
 
 .hero-banner .hero-title {
-  font-size: 46px;
+  font-size: 42px;
   color: #1e293b;
 }
 
@@ -217,12 +239,12 @@ body {
 }
 
 .hero-banner .hero-description {
-  font-size: 17px;
+  font-size: 16px;
   color: #334155;
 }
 
 .hero-banner .btn-primary {
-  padding: 14px 26px;
+  padding: 12px 24px;
 }
 
 /* ================= ДОПОЛНИТЕЛЬНЫЕ ИЗОБРАЖЕНИЯ ================= */
@@ -252,7 +274,7 @@ body {
 /* ================= ОСНОВНЫЕ ТЕМЫ ================= */
 
 .topics-section {
-  max-width: 100%;
+  width: 100%;
   padding: 70px 20px;
   margin: 0 auto;
   text-align: center;
@@ -272,12 +294,11 @@ body {
 
   background-size: 40px 40px;
   border-bottom: 1px solid #cbd5e1;
+  scroll-margin-top: 90px;
 
   transition:
     background-color 0.3s,
     border-color 0.3s;
-
-  scroll-margin-top: 90px;
 }
 
 .section-badge {
@@ -302,6 +323,7 @@ body {
 /* ================= КАРТОЧКИ ================= */
 
 .cards-grid {
+  width: 100%;
   max-width: 1140px;
   margin: 0 auto;
   display: flex;
@@ -314,9 +336,11 @@ body {
   border: 1px solid #cbd5e1;
   border-radius: 12px;
   padding: 24px;
+
   display: flex;
   align-items: center;
   gap: 20px;
+
   text-align: left;
   width: 65%;
 
@@ -352,13 +376,17 @@ body {
 .card-media-placeholder {
   width: 180px;
   height: 120px;
+
   border: none;
   border-radius: 8px;
   background: #ffffff;
+
   overflow: hidden;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   flex-shrink: 0;
 }
 
@@ -367,6 +395,50 @@ body {
   height: 100%;
   object-fit: contain;
   display: block;
+}
+
+/* ================= СВЕТЛЫЕ ФОТОГРАФИИ ================= */
+
+/* Мережевий етикет */
+
+body:not(.dark-theme) .card-1 img {
+  content: url("photos/et2.png");
+}
+
+/* Конфлікти онлайн */
+
+body:not(.dark-theme) .card-2 img {
+  content: url("photos/conf2.png");
+}
+
+/* Безпечне спілкування */
+
+body:not(.dark-theme) .card-3 img {
+  content: url("photos/sc2.png");
+}
+
+/* Цифрова репутація */
+
+body:not(.dark-theme) .card-4 img {
+  content: url("photos/rep1.png");
+}
+
+/* ================= ТЕМНЫЕ ФОТОГРАФИИ ================= */
+
+body.dark-theme .card-1 img {
+  content: url("photos/et-dark.png");
+}
+
+body.dark-theme .card-2 img {
+  content: url("photos/conf-dark.png");
+}
+
+body.dark-theme .card-3 img {
+  content: url("photos/sc-dark.png");
+}
+
+body.dark-theme .card-4 img {
+  content: url("photos/rep-dark.png");
 }
 
 /* ================= ТЕКСТ КАРТОЧЕК ================= */
@@ -401,7 +473,7 @@ body {
   text-decoration: underline;
 }
 
-/* ================= СВЕТЛЫЙ ПОДВАЛ ================= */
+/* ================= СВЕТЛЫЙ ФУТЕР ================= */
 
 .footer {
   background: #ffffff;
@@ -467,20 +539,25 @@ body.dark-theme .highlight {
   color: #60a5fa;
 }
 
-/* Темная главная секция */
+/* ================= ТЕМНАЯ ГЛАВНАЯ СЕКЦИЯ ================= */
 
 body.dark-theme .hero {
   background-color: #1e293b;
   border-color: #334155;
 }
 
-/* ================= БАННЕР ТЕМНОЙ ТЕМЫ ================= */
+/* ================= ТЕМНЫЙ БАННЕР ================= */
 
 body.dark-theme .hero.hero-banner {
-
   background-color: #0f172a;
 
-  background-image: url("photos/banner.jpg");
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.15)
+    ),
+    url("photos/banner.jpg");
 
   background-size: cover;
   background-position: center;
@@ -499,20 +576,17 @@ body.dark-theme .hero-banner .hero-description {
   color: #cbd5e1;
 }
 
-/* Дополнительные изображения */
-
 body.dark-theme .hero-image-placeholder {
   background: transparent;
 }
 
 body.dark-theme .card-media-placeholder {
-  background: #050b16;
+  background: #080e1a;
 }
 
-/* ================= ТЕМНЫЕ ОСНОВНЫЕ ТЕМЫ ================= */
+/* ================= ТЕМНЫЙ ФОН ОСНОВНЫХ ТЕМ ================= */
 
 body.dark-theme .topics-section {
-
   background-color: #111827;
 
   background-image:
@@ -527,13 +601,13 @@ body.dark-theme .topics-section {
       transparent 1px
     );
 
+  background-size: 40px 40px;
   border-color: #334155;
 }
 
-/* Темные карточки */
+/* ================= ТЕМНЫЕ КАРТОЧКИ ================= */
 
 body.dark-theme .card {
-
   background: #1e293b;
   border-color: #334155;
 
@@ -542,7 +616,6 @@ body.dark-theme .card {
 }
 
 body.dark-theme .card:hover {
-
   box-shadow:
     0 15px 25px -5px rgba(0, 0, 0, 0.35);
 }
@@ -556,7 +629,7 @@ body.dark-theme .section-badge {
   color: #93c5fd;
 }
 
-/* ================= ТЕМНЫЙ ПОДВАЛ ================= */
+/* ================= ТЕМНЫЙ ФУТЕР ================= */
 
 body.dark-theme .footer {
   background: #0b0f19;
@@ -582,7 +655,9 @@ body.dark-theme .footer {
   }
 
   .hero.hero-banner {
+    height: 400px;
     min-height: 400px;
+    max-height: none;
     padding: 60px 20px;
   }
 
@@ -595,6 +670,8 @@ body.dark-theme .footer {
   }
 
 }
+
+/* ================= МОБИЛЬНАЯ ВЕРСИЯ ================= */
 
 @media (max-width: 480px) {
 
@@ -634,10 +711,12 @@ body.dark-theme .footer {
   }
 
   .hero.hero-banner {
+    height: auto;
     min-height: 350px;
-    padding: 40px 15px;
+    max-height: none;
 
-    background-position: center;
+    padding: 40px 15px;
+    background-position: left center;
   }
 
   .hero-banner .hero-title {
@@ -672,41 +751,4 @@ body.dark-theme .footer {
     width: 100%;
   }
 
-}
-
-/* Баннер сохраняет пропорции 3:1 на широких экранах. */
-.hero.hero-banner {
-  min-height: max(340px, 33.33vw);
-  padding: 48px 20px;
-  background-position: center;
-}
-.hero-banner .hero-content { max-width: min(48%, 560px); }
-.hero-banner .hero-title { font-size: clamp(28px, 3vw, 46px); overflow-wrap: anywhere; }
-@media (max-width: 900px) {
-  .hero.hero-banner {
-    background-size: 100% auto;
-    background-position: bottom center;
-    min-height: 0;
-    padding: 32px 20px calc(34vw + 24px);
-    background-color: #f5f8fc;
-  }
-  body.dark-theme .hero.hero-banner {
-    background-size: 100% auto;
-    background-position: bottom center;
-    background-color: #062344;
-  }
-  .hero-banner .hero-content { max-width: 100%; }
-}
-
-
-/* Логотип для обеих тем, включая дополнительные страницы. */
-body:not(.dark-theme) .logo-icon {
-  content: url("photos/light-logo.png");
-  filter: invert(1);
-  mix-blend-mode: multiply;
-}
-body.dark-theme .logo-icon {
-  content: url("photos/logo.png");
-  filter: none;
-  mix-blend-mode: normal;
 }
