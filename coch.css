@@ -376,3 +376,27 @@ body.dark-theme .footer {
     font-size: 12px;
   }
 }
+
+/* Изображения */
+.hero-image-placeholder {
+  height: auto;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  overflow: hidden;
+}
+.hero-image-placeholder img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+.card-media-placeholder {
+  border: none;
+}
+.card-media-placeholder img {
+  object-fit: contain;
+}
+@media (max-width: 900px) {
+  .hero-image-placeholder { width: 100%; }
+}
