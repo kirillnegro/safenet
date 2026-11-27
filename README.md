@@ -45,27 +45,6 @@ SafeNet — освітній вебсайт, створений для підв�
 | Git | Контроль версій |
 | GitHub | Зберігання проєкту |
 
-## 📁 Структура проєкту
-
-    safenet-main/
-    ├── main.html
-    ├── conflict.html
-    ├── coch.css
-    ├── site.js
-    ├── README.md
-    └── photos/
-        ├── logo.png
-        ├── light-logo.png
-        ├── banner.jpg
-        ├── light-banner.png
-        ├── et2.png
-        ├── et-dark.png
-        ├── conf2.png
-        ├── conf-dark.png
-        ├── sc2.png
-        ├── sc-dark.png
-        ├── rep1.png
-        └── rep-dark.png
 
 ## 🚀 Запуск проєкту
 
