@@ -518,7 +518,7 @@ body.dark-theme .hero.hero-banner {
             rgba(5, 15, 35, 0.80) 35%,
             rgba(5, 15, 35, 0.15) 100%
         ),
-        url("photos/banner.png");
+        url("photos/banner.jpg");
 
     background-size: cover;
     background-position: center;
