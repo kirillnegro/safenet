@@ -95,7 +95,7 @@ SafeNet — освітній вебсайт, створений для підв�
 ## 👥 Команда проєкту
 
 ### Красночубенко Кирилл Костянтинович
-**Team Lead / Frontend Developer**
+**QA Engineer / Frontend Developer**
 - Керування проєктом.
 - Розробка HTML, CSS та JavaScript.
 - Реалізація функціоналу вебсайту.
