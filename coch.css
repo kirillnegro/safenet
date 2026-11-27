@@ -32,6 +32,7 @@ body {
 }
 
 .header-container {
+  width: 100%;
   max-width: 1140px;
   margin: 0 auto;
   padding: 16px 20px;
@@ -64,10 +65,14 @@ body {
   flex-shrink: 0;
 }
 
+/* Светлый логотип */
+
 body:not(.dark-theme) .logo-icon {
   content: url("photos/light-logo.png");
   filter: invert(1);
 }
+
+/* Темный логотип */
 
 body.dark-theme .logo-icon {
   content: url("photos/logo.png");
@@ -192,46 +197,110 @@ body.dark-theme .logo-icon {
 /* ================= ГЛАВНЫЙ БАННЕР ================= */
 
 .hero.hero-banner {
+  position: relative;
+  isolation: isolate;
   width: 100%;
 
-  height: 450px;
-  min-height: 450px;
-  max-height: 450px;
+  height: auto;
+  min-height: 400px;
+  max-height: none;
 
   aspect-ratio: auto;
-  padding: 60px 20px;
+  padding: 40px 20px;
 
-  background-color: #e2e8f0;
+  background-color: #f0f6fc;
+  background-image: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+/* Изображение баннера ограничено по ширине */
+
+.hero.hero-banner::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 100%;
+  max-width: 1200px;
+
+  z-index: -1;
 
   background-image:
     linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.65),
-      rgba(255, 255, 255, 0.05)
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(255, 255, 255, 0.20) 30%,
+      rgba(255, 255, 255, 0) 55%,
+      rgba(255, 255, 255, 0) 100%
     ),
     url("photos/light-banner.png");
 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  display: flex;
-  align-items: center;
 }
 
+/* Плавный переход по краям баннера */
+
+.hero.hero-banner::after {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 100%;
+  max-width: 1200px;
+
+  z-index: -1;
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    #f0f6fc 0%,
+    transparent 5%,
+    transparent 95%,
+    #f0f6fc 100%
+  );
+}
+
+/* Контейнер текста баннера */
+
 .hero-banner .hero-container {
+  position: relative;
+
   width: 100%;
   max-width: 1140px;
   margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .hero-banner .hero-content {
-  max-width: 550px;
+  width: 100%;
+  max-width: 520px;
 }
 
 .hero-banner .hero-title {
-  font-size: 42px;
+  font-size: 38px;
+  line-height: 1.2;
   color: #1e293b;
+  margin-bottom: 16px;
 }
 
 .hero-banner .highlight {
@@ -241,6 +310,8 @@ body.dark-theme .logo-icon {
 .hero-banner .hero-description {
   font-size: 16px;
   color: #334155;
+  max-width: 460px;
+  margin-bottom: 24px;
 }
 
 .hero-banner .btn-primary {
@@ -254,10 +325,12 @@ body.dark-theme .logo-icon {
   width: 100%;
   min-width: 0;
   height: auto;
+
   border: none;
   border-radius: 16px;
   background: transparent;
   overflow: hidden;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -278,6 +351,7 @@ body.dark-theme .logo-icon {
   padding: 70px 20px;
   margin: 0 auto;
   text-align: center;
+
   background-color: #e2e8f0;
 
   background-image:
@@ -293,6 +367,7 @@ body.dark-theme .logo-icon {
     );
 
   background-size: 40px 40px;
+
   border-bottom: 1px solid #cbd5e1;
   scroll-margin-top: 90px;
 
@@ -307,6 +382,7 @@ body.dark-theme .logo-icon {
   font-weight: 700;
   color: #2563eb;
   letter-spacing: 1px;
+
   margin-bottom: 8px;
   background: #dbeafe;
   padding: 4px 10px;
@@ -326,6 +402,7 @@ body.dark-theme .logo-icon {
   width: 100%;
   max-width: 1140px;
   margin: 0 auto;
+
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -478,7 +555,9 @@ body.dark-theme .card-4 img {
 .footer {
   background: #ffffff;
   color: #64748b;
+
   border-top: 1px solid #cbd5e1;
+
   text-align: center;
   padding: 24px;
   font-size: 14px;
@@ -549,13 +628,21 @@ body.dark-theme .hero {
 /* ================= ТЕМНЫЙ БАННЕР ================= */
 
 body.dark-theme .hero.hero-banner {
-  background-color: #0f172a;
+  background-color: #06182f;
+  background-image: none;
+}
 
+/* Затемнение только слева */
+
+body.dark-theme .hero.hero-banner::before {
   background-image:
     linear-gradient(
       90deg,
-      rgba(0, 0, 0, 0.45),
-      rgba(0, 0, 0, 0.15)
+      rgba(0, 0, 0, 0.35) 0%,
+      rgba(0, 0, 0, 0.20) 25%,
+      rgba(0, 0, 0, 0.08) 40%,
+      rgba(0, 0, 0, 0) 55%,
+      rgba(0, 0, 0, 0) 100%
     ),
     url("photos/banner.jpg");
 
@@ -563,6 +650,20 @@ body.dark-theme .hero.hero-banner {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+/* Плавные края темного баннера */
+
+body.dark-theme .hero.hero-banner::after {
+  background: linear-gradient(
+    90deg,
+    #06182f 0%,
+    transparent 5%,
+    transparent 95%,
+    #06182f 100%
+  );
+}
+
+/* Текст темного баннера */
 
 body.dark-theme .hero-banner .hero-title {
   color: #ffffff;
@@ -655,14 +756,25 @@ body.dark-theme .footer {
   }
 
   .hero.hero-banner {
-    height: 400px;
-    min-height: 400px;
-    max-height: none;
-    padding: 60px 20px;
+    min-height: 340px;
+    padding: 40px 20px;
+  }
+
+  .hero-banner .hero-container {
+    align-items: flex-start;
+  }
+
+  .hero-banner .hero-content {
+    max-width: 420px;
   }
 
   .hero-banner .hero-title {
-    font-size: 36px;
+    font-size: 32px;
+  }
+
+  .hero-banner .hero-description {
+    font-size: 14px;
+    max-width: 360px;
   }
 
   .card {
@@ -711,20 +823,38 @@ body.dark-theme .footer {
   }
 
   .hero.hero-banner {
-    height: auto;
     min-height: 350px;
-    max-height: none;
+    padding: 30px 15px 140px;
+  }
 
-    padding: 40px 15px;
-    background-position: left center;
+  .hero.hero-banner::before,
+  body.dark-theme .hero.hero-banner::before {
+    background-size: 100% 100%, 100% auto;
+    background-position: center, center bottom;
+  }
+
+  .hero.hero-banner::after,
+  body.dark-theme .hero.hero-banner::after {
+    display: none;
+  }
+
+  .hero-banner .hero-content {
+    max-width: 100%;
   }
 
   .hero-banner .hero-title {
     font-size: 28px;
+    margin-bottom: 12px;
   }
 
   .hero-banner .hero-description {
     font-size: 14px;
+    margin-bottom: 18px;
+  }
+
+  .hero-banner .btn-primary {
+    padding: 10px 20px;
+    font-size: 13px;
   }
 
   .topics-section {
