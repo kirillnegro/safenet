@@ -7,30 +7,21 @@
   <link rel="stylesheet" href="coch.css">
 </head>
 <body data-title-key="card2Title">
-
-  <!-- Шапка сайта (Header) -->
   <header class="header">
     <div class="header-container">
-      <div class="logo">
-        <div class="logo-icon-placeholder"></div>
+      <a href="main.html#top" class="logo">
+        <img src="photos/logo.png" alt="Логотип" class="logo-icon">
         <div class="logo-text">
           <span class="logo-title" data-i18n="logoTitle">Цифрова грамотність</span>
           <span class="logo-subtitle" data-i18n="logoSubtitle">Освітній сайт для учнів</span>
         </div>
-      </div>
-
-      <!-- Кнопки управления справа сверху -->
+      </a>
       <div class="header-actions">
-        <button id="lang-toggle" class="theme-btn" aria-label="Змінити мову">
-          🌐 EN
-        </button>
-        <button id="theme-toggle" class="theme-btn" aria-label="Змінити тему">
-          🌙 Темна
-        </button>
+        <button id="lang-toggle" class="theme-btn" aria-label="Змінити мову">🌐 EN</button>
+        <button id="theme-toggle" class="theme-btn" aria-label="Змінити тему">🌙 Темна</button>
       </div>
     </div>
   </header>
-
   <main>
     <section class="hero">
       <div class="hero-container">
@@ -41,7 +32,6 @@
         </div>
       </div>
     </section>
-
     <section class="topics-section conflict-guide" aria-labelledby="conflict-guide-title">
       <h2 class="section-title" id="conflict-guide-title" data-i18n="conflictGuide">Що робити під час конфлікту в мережі</h2>
       <div class="cards-grid">
@@ -72,13 +62,11 @@
       </div>
     </section>
   </main>
-
   <footer class="footer">
     <div class="footer-container">
       <p data-i18n="footerText">© 2026 Цифрова грамотність. Освітній проект.</p>
     </div>
   </footer>
-
   <script src="site.js"></script>
 </body>
 </html>
